@@ -1,3 +1,5 @@
+//length indicates units of 15 minutes
+
 module.exports = [
     {
         name: "workout",

@@ -1,0 +1,21 @@
+table{
+    table-layout: fixed;
+    border: 6px solid black;
+    width: 100%;
+}
+
+tr{
+    border: 1px solid black;
+    width: 100%;
+}
+
+td{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.top-row{
+    border-top: 1px solid black;
+}
+
+
