@@ -1,4 +1,6 @@
 
+
+
 calendar will be stored in local memory in large 2 object: 7 days, 24 hours (each how divided into four 15 minutes blocks)
 
 1.) calendar component loads

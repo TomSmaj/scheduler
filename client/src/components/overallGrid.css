@@ -5,7 +5,6 @@ table{
 }
 
 tr{
-    border: 1px solid black;
     width: 100%;
 }
 
@@ -14,7 +13,7 @@ td{
     border-right: 1px solid black;
 }
 
-.top-row{
+.start-hour{
     border-top: 1px solid black;
 }
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './overallGrid.css';
-
-var numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+import $ from 'jquery';
 
 class OverallGrid extends Component {
     constructor(props) {
@@ -10,37 +9,47 @@ class OverallGrid extends Component {
             data: {}
         }
         this.genRow = this.genRow.bind(this);
+        this.getData = this.getData.bind(this);
         this.genBankRow = this.genBlankRow.bind(this);
     }
 
-    getData = () => {
+    componentDidMount(){
+        this.getData();
+    }
 
+    getData = () => {
+        $.get("/getdata", function(result) {
+            console.log(result);
+            this.setState({
+                data: result
+            })
+        })
     }
 
     genRow = (i) => {
         return (
             <tr>
-                <td className="top-row"> {i}:00</td>
-                <td className="top-row"> {i}:00</td>
-                <td className="top-row"> {i}:00</td>
-                <td className="top-row"> {i}:00</td>
-                <td className="top-row"> {i}:00</td>
-                <td className="top-row"> {i}:00</td>
-                <td className="top-row"> {i}:00</td>
+                <td className={"start-hour mon-col " + i + ":00 time-block"}> {i}:00</td>
+                <td className={"start-hour tue-col " + i + ":00"}> {i}:00</td>
+                <td className={"start-hour wed-col " + i + ":00"}> {i}:00</td>
+                <td className={"start-hour thu-col " + i + ":00"}> {i}:00</td>
+                <td className={"start-hour fri-col " + i + ":00"}> {i}:00</td>
+                <td className={"start-hour sat-col " + i + ":00"}> {i}:00</td>
+                <td className={"start-hour sun-col " + i + ":00"}> {i}:00</td>
             </tr>
         )
     }
 
-    genBlankRow = (i) => {
+    genBlankRow = (i, j) => {
         return (
             <tr>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
+                <td className={"mon-col " + i + ":" + j}> - </td>
+                <td className={"tue-col " + i + ":" + j}> - </td>
+                <td className={"wed-col " + i + ":" + j}> - </td>
+                <td className={"thu-col " + i + ":" + j}> - </td>
+                <td className={"fri-col " + i + ":" + j}> - </td>
+                <td className={"sat-col " + i + ":" + j}> - </td>
+                <td className={"sun-col " + i + ":" + j}> - </td>
             </tr>
         )
     }
@@ -62,101 +71,101 @@ class OverallGrid extends Component {
                     </thead>
                     <tbody>                        
                         {this.genRow(0)}
-                        {this.genBlankRow(0)}
-                        {this.genBlankRow(0)}
-                        {this.genBlankRow(0)}
+                        {this.genBlankRow(0, 15)}
+                        {this.genBlankRow(0, 30)}
+                        {this.genBlankRow(0, 45)}
                         {this.genRow(1)}
-                        {this.genBlankRow(1)}
-                        {this.genBlankRow(1)}
-                        {this.genBlankRow(1)}
+                        {this.genBlankRow(1, 15)}
+                        {this.genBlankRow(1, 30)}
+                        {this.genBlankRow(1, 45)}
                         {this.genRow(2)}
-                        {this.genBlankRow(2)}
-                        {this.genBlankRow(2)}
-                        {this.genBlankRow(2)}
+                        {this.genBlankRow(2, 15)}
+                        {this.genBlankRow(2, 30)}
+                        {this.genBlankRow(2, 45)}
                         {this.genRow(3)}
-                        {this.genBlankRow(3)}
-                        {this.genBlankRow(3)}
-                        {this.genBlankRow(3)}
+                        {this.genBlankRow(3, 15)}
+                        {this.genBlankRow(3, 30)}
+                        {this.genBlankRow(3, 45)}
                         {this.genRow(4)}
-                        {this.genBlankRow(4)}
-                        {this.genBlankRow(4)}
-                        {this.genBlankRow(4)}
+                        {this.genBlankRow(4, 15)}
+                        {this.genBlankRow(4, 30)}
+                        {this.genBlankRow(4, 45)}
                         {this.genRow(5)}
-                        {this.genBlankRow(5)}
-                        {this.genBlankRow(5)}
-                        {this.genBlankRow(5)}
+                        {this.genBlankRow(5, 15)}
+                        {this.genBlankRow(5, 30)}
+                        {this.genBlankRow(5, 45)}
                         {this.genRow(6)}
-                        {this.genBlankRow(6)}
-                        {this.genBlankRow(6)}
-                        {this.genBlankRow(6)}
+                        {this.genBlankRow(6, 15)}
+                        {this.genBlankRow(6, 30)}
+                        {this.genBlankRow(6, 45)}
                         {this.genRow(7)}
-                        {this.genBlankRow(7)}
-                        {this.genBlankRow(7)}
-                        {this.genBlankRow(7)}
+                        {this.genBlankRow(7, 15)}
+                        {this.genBlankRow(7, 30)}
+                        {this.genBlankRow(7, 45)}
                         {this.genRow(8)}
-                        {this.genBlankRow(8)}
-                        {this.genBlankRow(8)}
-                        {this.genBlankRow(8)}
+                        {this.genBlankRow(8, 15)}
+                        {this.genBlankRow(8, 30)}
+                        {this.genBlankRow(8, 45)}
                         {this.genRow(9)}
-                        {this.genBlankRow(9)}
-                        {this.genBlankRow(9)}
-                        {this.genBlankRow(9)}
+                        {this.genBlankRow(9, 15)}
+                        {this.genBlankRow(9, 30)}
+                        {this.genBlankRow(9, 45)}
                         {this.genRow(10)}
-                        {this.genBlankRow(10)}
-                        {this.genBlankRow(10)}
-                        {this.genBlankRow(10)}
+                        {this.genBlankRow(10, 15)}
+                        {this.genBlankRow(10, 30)}
+                        {this.genBlankRow(10, 45)}
                         {this.genRow(11)}
-                        {this.genBlankRow(11)}
-                        {this.genBlankRow(11)}
-                        {this.genBlankRow(11)}
+                        {this.genBlankRow(11, 15)}
+                        {this.genBlankRow(11, 30)}
+                        {this.genBlankRow(11, 45)}
                         {this.genRow(12)}
-                        {this.genBlankRow(12)}
-                        {this.genBlankRow(12)}
-                        {this.genBlankRow(12)}
+                        {this.genBlankRow(12, 15)}
+                        {this.genBlankRow(12, 30)}
+                        {this.genBlankRow(12, 45)}
                         {this.genRow(13)}
-                        {this.genBlankRow(13)}
-                        {this.genBlankRow(13)}
-                        {this.genBlankRow(13)}
+                        {this.genBlankRow(13, 15)}
+                        {this.genBlankRow(13, 30)}
+                        {this.genBlankRow(13, 45)}
                         {this.genRow(14)}
-                        {this.genBlankRow(14)}
-                        {this.genBlankRow(14)}
-                        {this.genBlankRow(14)}
+                        {this.genBlankRow(14, 30)}
+                        {this.genBlankRow(14, 15)}
+                        {this.genBlankRow(14, 45)}
                         {this.genRow(15)}
-                        {this.genBlankRow(15)}
-                        {this.genBlankRow(15)}
-                        {this.genBlankRow(15)}
+                        {this.genBlankRow(15, 15)}
+                        {this.genBlankRow(15, 30)}
+                        {this.genBlankRow(15, 45)}
                         {this.genRow(16)}
-                        {this.genBlankRow(16)}
-                        {this.genBlankRow(16)}
-                        {this.genBlankRow(16)}
+                        {this.genBlankRow(16, 15)}
+                        {this.genBlankRow(16, 30)}
+                        {this.genBlankRow(16, 45)}
                         {this.genRow(17)}
-                        {this.genBlankRow(17)}
-                        {this.genBlankRow(17)}
-                        {this.genBlankRow(17)}
+                        {this.genBlankRow(17, 15)}
+                        {this.genBlankRow(17, 30)}
+                        {this.genBlankRow(17, 45)}
                         {this.genRow(18)}
-                        {this.genBlankRow(18)}
-                        {this.genBlankRow(18)}
-                        {this.genBlankRow(18)}
+                        {this.genBlankRow(18, 15)}
+                        {this.genBlankRow(18, 30)}
+                        {this.genBlankRow(18, 45)}
                         {this.genRow(19)}
-                        {this.genBlankRow(19)}
-                        {this.genBlankRow(19)}
-                        {this.genBlankRow(19)}
+                        {this.genBlankRow(19, 15)}
+                        {this.genBlankRow(19, 30)}
+                        {this.genBlankRow(19, 45)}
                         {this.genRow(20)}
-                        {this.genBlankRow(20)}
-                        {this.genBlankRow(20)}
-                        {this.genBlankRow(20)}
+                        {this.genBlankRow(20, 15)}
+                        {this.genBlankRow(20, 30)}
+                        {this.genBlankRow(20, 45)}
                         {this.genRow(21)}
-                        {this.genBlankRow(21)}
-                        {this.genBlankRow(21)}
-                        {this.genBlankRow(21)}
+                        {this.genBlankRow(21, 15)}
+                        {this.genBlankRow(21, 30)}
+                        {this.genBlankRow(21, 45)}
                         {this.genRow(22)}
-                        {this.genBlankRow(22)}
-                        {this.genBlankRow(22)}
-                        {this.genBlankRow(22)}
+                        {this.genBlankRow(22, 15)}
+                        {this.genBlankRow(22, 30)}
+                        {this.genBlankRow(22, 45)}
                         {this.genRow(23)}
-                        {this.genBlankRow(23)}
-                        {this.genBlankRow(23)}
-                        {this.genBlankRow(23)}
+                        {this.genBlankRow(23, 15)}
+                        {this.genBlankRow(23, 30)}
+                        {this.genBlankRow(23, 45)}
                     </tbody>
                 </table>
             </div>
