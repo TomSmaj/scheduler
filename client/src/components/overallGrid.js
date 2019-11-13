@@ -10,7 +10,7 @@ class OverallGrid extends Component {
         }
         this.genRow = this.genRow.bind(this);
         this.getData = this.getData.bind(this);
-        this.genBankRow = this.genBlankRow.bind(this);
+        this.genBlankRow = this.genBlankRow.bind(this);
     }
 
     componentDidMount(){
@@ -20,9 +20,9 @@ class OverallGrid extends Component {
     getData = () => {
         $.get("/getdata", function(result) {
             console.log(result);
-            this.setState({
-                data: result
-            })
+            // this.setState({
+            //     data: result
+            // })
         })
     }
 

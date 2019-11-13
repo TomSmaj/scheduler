@@ -1,4 +1,4 @@
-var data = require('../../data/data.js');
+var data = require('../data/data.js');
 const axios = require('axios');
 
 module.exports = function (app) {

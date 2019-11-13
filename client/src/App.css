@@ -34,3 +34,17 @@
 .time-block-bottom {
   border-radius: 0px 0px 30px 30px;
 }
+
+.calendar{
+  left: 0px;
+  width: 70%;
+  height: 100%;
+  float: left;
+}
+
+.eventList{
+  width: 30%;
+  height: 100%;
+  float: right;
+  right: 0px;
+}
